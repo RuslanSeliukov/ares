@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Routes from "./common/routes";
 import { Link } from 'react-router-dom';
 import { Provider } from "react-redux";
+import store from "./redux/store/store"
 
 class App extends React.Component {
 
@@ -21,7 +22,7 @@ class App extends React.Component {
 }
 
 ReactDOM.render((
-    <Provider>
+    <Provider store={store}>
         <BrowserRouter>
             <App/>
             <Routes/>

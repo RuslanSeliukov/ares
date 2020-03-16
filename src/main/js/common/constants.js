@@ -1,1 +1,1 @@
-export const ADD_ARTICLE = "ADD_ARTICLE";
+export const UPDATE_ADD_BOOK_FORM = "UPDATE_ADD_BOOK_FORM";

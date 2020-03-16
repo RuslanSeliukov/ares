@@ -1,13 +1,13 @@
-import {ADD_ARTICLE} from "../../common/constants";
+import {UPDATE_ADD_BOOK_FORM} from "../../common/constants";
 
 const initialState = {
-    articles: []
+    formState: []
 };
 
 function rootReducer(state = initialState, action) {
-    if (action.type === ADD_ARTICLE) {
+    if (action.type === UPDATE_ADD_BOOK_FORM) {
         return Object.assign({}, state, {
-            articles: state.articles.concat(action.payload)
+            formState: state.formState.concat(action.payload)
         });
     }
     return state;
