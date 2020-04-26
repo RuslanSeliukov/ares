@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './src/main/js/app.js',
+  entry: ['babel-polyfill', './src/main/js/app.js'],
   devtool: 'sourcemaps',
   cache: true,
   mode: 'development',
@@ -17,7 +17,9 @@ module.exports = {
         use: [{
           loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"]
+            presets: ["@babel/preset-env",
+              "@babel/preset-react",
+              {'plugins': ['@babel/plugin-proposal-class-properties']}]
           }
         }]
       }

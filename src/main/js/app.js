@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Routes from "./common/routes";
-import { Link } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from "./common/Routes";
 import { Provider } from "react-redux";
 import store from "./redux/store/store"
+import Logo from "./components/Logo"
+import HeaderMenu from "./components/HeaderMenu";
 
 class App extends React.Component {
 
@@ -15,7 +16,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Link to="/admin/addProduct">Add New Book</Link>
+                <Logo/>
+                <HeaderMenu/>
+                <Routes/>
             </div>
         )
     }
@@ -25,7 +28,6 @@ ReactDOM.render((
     <Provider store={store}>
         <BrowserRouter>
             <App/>
-            <Routes/>
         </BrowserRouter>
     </Provider>
 ), document.getElementById('react'));

@@ -1,5 +1,5 @@
-import {UPDATE_ADD_BOOK_FORM} from "../../common/constants";
+import { ADD_USERNAME } from "../../common/Constants";
 
-export function updateFormState(payload) {
-    return { type: UPDATE_ADD_BOOK_FORM, payload }
+export function addUserInfo(payload) {
+    return { type: ADD_USERNAME, payload }
 }
