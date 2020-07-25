@@ -1,6 +1,13 @@
 import { reducer as formReducer } from 'redux-form'
 import {combineReducers} from "redux";
-import {ADD_BOOKS, ADD_CURRENT_BOOK, ADD_TO_CART, ADD_USERNAME, CLEAN_CART} from "../../common/Constants";
+import {
+    ADD_BOOKS,
+    ADD_CURRENT_BOOK,
+    ADD_TO_CART,
+    ADD_USERNAME,
+    CLEAN_CART,
+    REMOVE_CURRENT_BOOK
+} from "../../common/Constants";
 
 const initialState = {
     username: undefined,
@@ -35,6 +42,11 @@ function rootReducer(state = initialState, action) {
     if (action.type === CLEAN_CART) {
         return Object.assign({}, state, {
             cart: []
+        })
+    }
+    if (action.type === REMOVE_CURRENT_BOOK) {
+        return Object.assign({}, state, {
+            currentBook: undefined
         })
     }
     return state;

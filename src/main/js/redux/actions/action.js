@@ -1,4 +1,11 @@
-import {ADD_BOOKS, ADD_CURRENT_BOOK, ADD_TO_CART, ADD_USERNAME, CLEAN_CART} from "../../common/Constants";
+import {
+    ADD_BOOKS,
+    ADD_CURRENT_BOOK,
+    ADD_TO_CART,
+    ADD_USERNAME,
+    CLEAN_CART,
+    REMOVE_CURRENT_BOOK
+} from "../../common/Constants";
 
 export function addUserInfo(payload) {
     return { type: ADD_USERNAME, payload }
@@ -18,4 +25,8 @@ export function addToCart(payload) {
 
 export function cleanCart() {
     return { type: CLEAN_CART }
+}
+
+export function removeCurrentBook() {
+    return { type: REMOVE_CURRENT_BOOK }
 }

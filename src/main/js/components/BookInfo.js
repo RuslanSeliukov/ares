@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import store from "../redux/store/store";
-import {addCurrentBook, addToCart} from "../redux/actions/action";
+import {addCurrentBook, addToCart, removeCurrentBook} from "../redux/actions/action";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 
@@ -23,6 +23,10 @@ class BookInfo extends React.Component {
         }).then(function (response) {
             store.dispatch(addCurrentBook(response.data));
         }.bind(this));
+    }
+
+    componentWillUnmount() {
+        store.dispatch(removeCurrentBook());
     }
 
     onClick() {
