@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class EntryPoint {
 
-  @RequestMapping(value = {"/", "admin/**", "/login"}, method = RequestMethod.GET)
+  @RequestMapping(value = {"/", "admin/**", "/login", "/BookInfo/**", "/cart"}, method = RequestMethod.GET)
   public String index() {
     return "index";
   }
