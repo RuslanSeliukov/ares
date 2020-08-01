@@ -1,8 +1,11 @@
 package com.ares.rest;
 
 import com.ares.models.AddProductRequest;
+import com.ares.models.OrderRequest;
 import com.ares.models.db.Book;
+import com.ares.models.db.Order;
 import com.ares.repositories.BookRepository;
+import com.ares.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,10 +16,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class AddProductRestController {
+public class MainRestController {
 
     @Autowired
     BookRepository bookRepository;
+    @Autowired
+    OrderRepository orderRepository;
 
     @PostMapping(value = "/addProduct", consumes = "multipart/form-data", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> index(@ModelAttribute AddProductRequest addProductRequest) {
@@ -55,7 +60,12 @@ public class AddProductRestController {
     }
 
     @PostMapping(value = "/placeOrder", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> placeOrder(@ModelAttribute AddProductRequest addProductRequest) {
+    public ResponseEntity<String> placeOrder(@ModelAttribute Order order) {
+        try {
+            orderRepository.save(order);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).build();
+        }
         return ResponseEntity.ok().build();
     }
 
