@@ -3,7 +3,7 @@ import axios from 'axios';
 import store from "../redux/store/store";
 import {addBooks} from "../redux/actions/action";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
+import {BookCard} from "./BookCard";
 
 class Cards extends React.Component {
 
@@ -26,27 +26,15 @@ class Cards extends React.Component {
     render() {
         return (
             <div>
-                <BookCard books={this.props.books} />
+                {this.props.books.map(book =>
+                    <div key={book.id}>
+                        <BookCard book={book} />
+                    </div>
+                )}
             </div>
         )
     }
 }
-
-/*Need to put in separate file*/
-const BookCard = ({books}) => (
-    <div className="container d-flex flex-column">
-        {books.map(book => (
-            <div key={book.id} className="card justify-content-center">
-                <div className="text-center text-element">{book.bookName}</div>
-                <div>
-                    <Link to={{pathname: `/BookInfo/${book.id}`, state: {bookId: book.id}}} >
-                        <img style={{width: "180px", height: "250"}} src={"data:image/png;base64," + book.pictureData}/>
-                    </Link>
-                </div>
-            </div>
-        ))}
-    </div>
-);
 
 const mapStateToProps = function(state) {
     return {

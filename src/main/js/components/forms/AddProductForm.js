@@ -21,6 +21,11 @@ class AddProductForm extends React.Component {
                     <Field className="form-control" name="author" component="input" type="text"/>
                 </Form.Group>
 
+                <Form.Group controlId="price">
+                    <Form.Label>Price</Form.Label>
+                    <Field className="form-control" name="price" component="input" type="text"/>
+                </Form.Group>
+
                 <Form.Group controlId="publisher">
                     <Form.Label>Publisher</Form.Label>
                     <Field className="form-control" name="publisher" component="input" type="text"/>
@@ -38,12 +43,12 @@ class AddProductForm extends React.Component {
 
                 <Form.Group controlId="printLength">
                     <Form.Label>Print length</Form.Label>
-                    <Field className="form-control" name="printLength" component="input" type="number"/>
+                    <Field className="form-control" name="printLength" component="input" type="text"/>
                 </Form.Group>
 
                 <Form.Group controlId="productDimensions">
                     <Form.Label>Product dimension</Form.Label>
-                    <Field className="form-control" name="productDimensions" component="input" type="number"/>
+                    <Field className="form-control" name="productDimensions" component="input" type="text"/>
                 </Form.Group>
 
                 <Form.Group controlId="binding">
@@ -54,6 +59,11 @@ class AddProductForm extends React.Component {
                 <Form.Group controlId="isbn">
                     <Form.Label>ISBN</Form.Label>
                     <Field className="form-control" name="isbn" component="input" type="text"/>
+                </Form.Group>
+
+                <Form.Group controlId="description">
+                    <Form.Label>Description</Form.Label>
+                    <Field className="form-control" name="description" component="textarea" rows="5"/>
                 </Form.Group>
 
                 <div className="custom-file">

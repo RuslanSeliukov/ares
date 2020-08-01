@@ -15,6 +15,7 @@ public class Book {
     private String id;
     private String bookName;
     private String author;
+    private String price;
     private String publisher;
     private String language;
     private String publicationDate;
@@ -22,5 +23,6 @@ public class Book {
     private String productDimension;
     private String binding;
     private String isbn;
+    private String description;
     private byte[] pictureData;
 }

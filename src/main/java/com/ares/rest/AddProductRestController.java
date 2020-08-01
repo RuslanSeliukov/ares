@@ -19,10 +19,11 @@ public class AddProductRestController {
     BookRepository bookRepository;
 
     @PostMapping(value = "/addProduct", consumes = "multipart/form-data", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String index(@ModelAttribute AddProductRequest addProductRequest) {
+    public ResponseEntity<String> index(@ModelAttribute AddProductRequest addProductRequest) {
         Book book = new Book();
         book.setBookName(addProductRequest.getBookName());
         book.setAuthor(addProductRequest.getAuthor());
+        book.setPrice(addProductRequest.getPrice());
         book.setPublisher(addProductRequest.getPublisher());
         book.setLanguage(addProductRequest.getLanguage());
         book.setPublicationDate(addProductRequest.getPublicationDate());
@@ -30,6 +31,7 @@ public class AddProductRestController {
         book.setProductDimension(addProductRequest.getProductDimensions());
         book.setBinding(addProductRequest.getBinding());
         book.setIsbn(addProductRequest.getIsbn());
+        book.setDescription(addProductRequest.getDescription());
 
         try {
             book.setPictureData(addProductRequest.getFile().getBytes());
@@ -39,7 +41,7 @@ public class AddProductRestController {
 
         bookRepository.save(book);
 
-        return "mockJWT";
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping(value = "/getBooks", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -53,7 +55,7 @@ public class AddProductRestController {
     }
 
     @PostMapping(value = "/placeOrder", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity placeOrder(@ModelAttribute AddProductRequest addProductRequest) {
+    public ResponseEntity<String> placeOrder(@ModelAttribute AddProductRequest addProductRequest) {
         return ResponseEntity.ok().build();
     }
 

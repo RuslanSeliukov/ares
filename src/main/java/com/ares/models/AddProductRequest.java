@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class AddProductRequest {
     private String bookName;
     private String author;
+    private String price;
     private String publisher;
     private String language;
     private String publicationDate;
@@ -20,5 +21,6 @@ public class AddProductRequest {
     private String productDimensions;
     private String binding;
     private String isbn;
+    private String description;
     private MultipartFile file;
 }

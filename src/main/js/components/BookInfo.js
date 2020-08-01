@@ -36,14 +36,15 @@ class BookInfo extends React.Component {
     render() {
         return (
             (typeof this.props.currentBook != 'undefined')?
-            <div className="row">
-                <div className="col-md-3 flex-column d-flex justify-content-center">
-                    <img style={{width: "180px", height: "250"}} src={"data:image/png;base64," + this.props.currentBook.pictureData}/>
+            <div className="container flex-row">
+                <div className="d-flex justify-content-center">
+                    <img style={{width: "280px", height: "250"}} src={"data:image/png;base64," + this.props.currentBook.pictureData}/>
                 </div>
-                <div className="col-md-6">
+                <div className="mb-5 mt-5">
                     <h3>Information: </h3>
                     <p>Book Name: {this.props.currentBook.bookName}</p>
                     <p>Author: {this.props.currentBook.author}</p>
+                    <p>Price: {this.props.currentBook.price}</p>
                     <p>Language: {this.props.currentBook.language}</p>
                     <p>Print Length: {this.props.currentBook.printLength}</p>
                     <p>Dimension: {this.props.currentBook.productDimension}</p>
@@ -51,10 +52,12 @@ class BookInfo extends React.Component {
                     <p>Publisher: {this.props.currentBook.publisher}</p>
                     <p>ISBN: {this.props.currentBook.isbn}</p>
                     <p>Binding: {this.props.currentBook.binding}</p>
+                    <p>Description: {this.props.currentBook.description}</p>
                 </div>
-                <div className="col-md-3 flex-column d-flex justify-content-center">
+                <div className="d-flex justify-content-center mb-5">
                     <Link to="/cart">
-                        <button className="btn btn-primary" type="button" onClick={this.onClick}>Add to Cart</button>
+                        <button className="btn btn-primary" type="button" onClick={this.onClick}>
+                            Add to Cart {this.props.currentBook.price}</button>
                     </Link>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import {
     ADD_CURRENT_BOOK,
     ADD_TO_CART,
     CLEAN_CART, LOG_OUT,
-    REMOVE_CURRENT_BOOK, SET_AUTHENTICATION,
+    REMOVE_CURRENT_BOOK, REMOVE_FROM_CART, SET_AUTHENTICATION,
     UPDATE_USER_INFO
 } from "../../common/Constants";
 
@@ -58,6 +58,15 @@ function rootReducer(state = initialState, action) {
         return Object.assign({}, state, {
             isUserAuthenticated: false,
             username: undefined
+        });
+    }
+    if (action.type === REMOVE_FROM_CART) {
+        const index = state.cart.findIndex(book => book.id === action.payload);
+        return Object.assign({}, state, {
+            cart: [
+                ...state.cart.slice(0, index),
+                ...state.cart.slice(index + 1)
+            ]
         });
     }
     return state;
