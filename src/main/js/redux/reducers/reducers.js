@@ -4,29 +4,29 @@ import {
     ADD_BOOKS,
     ADD_CURRENT_BOOK,
     ADD_TO_CART,
-    ADD_USERNAME,
     CLEAN_CART,
-    REMOVE_CURRENT_BOOK
+    REMOVE_CURRENT_BOOK, SET_AUTHENTICATION,
+    UPDATE_USER_INFO
 } from "../../common/Constants";
 
 const initialState = {
     username: undefined,
     books: undefined,
+    isUserAuthenticated: undefined,
     cart: []
 };
 
 function rootReducer(state = initialState, action) {
 
-    if (action.type === ADD_USERNAME) {
+    if (action.type === UPDATE_USER_INFO) {
         return Object.assign({}, state, {
-            username: action.payload,
-            isUserAuthenticated: true
+            username: action.payload.username,
+            isUserAuthenticated: action.payload.isValid
         });
     }
     if (action.type === ADD_BOOKS) {
         return Object.assign({}, state, {
             books: action.payload,
-            isUserAuthenticated: true
         });
     }
     if (action.type === ADD_CURRENT_BOOK) {
@@ -48,6 +48,11 @@ function rootReducer(state = initialState, action) {
         return Object.assign({}, state, {
             currentBook: undefined
         })
+    }
+    if (action.type === SET_AUTHENTICATION) {
+        return Object.assign({}, state, {
+            isUserAuthenticated: action.payload.isValid
+        });
     }
     return state;
 }

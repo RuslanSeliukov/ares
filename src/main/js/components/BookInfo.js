@@ -36,11 +36,11 @@ class BookInfo extends React.Component {
     render() {
         return (
             (typeof this.props.currentBook != 'undefined')?
-            <div>
-                <div>
+            <div className="row">
+                <div className="col-md-3 flex-column d-flex justify-content-center">
                     <img style={{width: "180px", height: "250"}} src={"data:image/png;base64," + this.props.currentBook.pictureData}/>
                 </div>
-                <div>
+                <div className="col-md-6">
                     <h3>Information: </h3>
                     <p>Book Name: {this.props.currentBook.bookName}</p>
                     <p>Author: {this.props.currentBook.author}</p>
@@ -52,9 +52,9 @@ class BookInfo extends React.Component {
                     <p>ISBN: {this.props.currentBook.isbn}</p>
                     <p>Binding: {this.props.currentBook.binding}</p>
                 </div>
-                <div>
+                <div className="col-md-3 flex-column d-flex justify-content-center">
                     <Link to="/cart">
-                        <button type="button" onClick={this.onClick}>Add to Cart</button>
+                        <button className="btn btn-primary" type="button" onClick={this.onClick}>Add to Cart</button>
                     </Link>
                 </div>
             </div>

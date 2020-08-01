@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import LogInForm from "./forms/LogInForm";
-import { addUserInfo } from "../redux/actions/action";
+import {updateUserInfo} from "../redux/actions/action";
 import store from "../redux/store/store"
 
 class LogIn extends React.Component {
@@ -21,7 +21,10 @@ class LogIn extends React.Component {
             data: values
         }).then(function (response) {
             localStorage.setItem("token", response.data.jwt);
-            store.dispatch(addUserInfo(this.state.username));
+            store.dispatch(updateUserInfo({
+                username: this.state.username,
+                isValid: true
+            }));
             this.props.history.push("/");
         }.bind(this));
     };

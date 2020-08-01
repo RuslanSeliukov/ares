@@ -7,66 +7,66 @@ class AddProductForm extends React.Component {
         const {handleSubmit} = this.props;
         const {onChange} = this.props;
         return (
-            <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
+            <div className="container flex-direction add-product">
                 <form onSubmit={handleSubmit}>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Book Name:
-                            <Field name="bookName" component="input" type="text"/>
+                            <Field name="bookName" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Author Name:
-                            <Field name="author" component="input" type="text"/>
+                            <Field name="author" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Publisher:
-                            <Field name="publisher" component="input" type="text"/>
+                            <Field name="publisher" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Language:
-                            <Field name="language" component="input" type="text"/>
+                            <Field name="language" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Publication Date:
-                            <Field name="publicationDate" component="input" type="text"/>
+                            <Field name="publicationDate" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Print Length:
-                            <Field name="printLength" component="input" type="text"/>
+                            <Field name="printLength" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Product Dimensions:
-                            <Field name="productDimensions" component="input" type="text"/>
+                            <Field name="productDimensions" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             Binding:
-                            <Field name="binding" component="input" type="text"/>
+                            <Field name="binding" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
+                    <div className="d-flex justify-content-center">
                         <label>
                             ISBN:
-                            <Field name="isbn" component="input" type="text"/>
+                            <Field name="isbn" className="form-control" component="input" type="text"/>
                         </label>
                     </div>
-                    <div style={{margin: '5px'}}>
-                        <input type="file" onChange={onChange}/>
+                    <div className="d-flex justify-content-center">
+                        <input type="file" className="form-control" onChange={onChange}/>
                     </div>
-                    <input type="submit" value="Submit" />
+                    <input type="submit" className="btn btn-primary" value="Submit" />
                 </form>
             </div>
         )

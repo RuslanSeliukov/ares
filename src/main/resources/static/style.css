@@ -1,0 +1,16 @@
+.card {
+    margin-bottom: 20px;
+}
+
+.card > div {
+    margin: 10px;
+}
+
+.text-element {
+    font-family: 'Grenze Gotisch', cursive;
+    font-size: 30px;
+}
+
+.header-menu {
+    margin-bottom: 50px;
+}

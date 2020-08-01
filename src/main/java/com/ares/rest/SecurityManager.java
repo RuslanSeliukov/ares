@@ -44,7 +44,7 @@ public class SecurityManager {
 
         final String jwt = jwtUtil.generateToken(userDetails);
 
-        return ResponseEntity.ok(new JwtJsonModel(jwt));
+        return ResponseEntity.ok(new JwtJsonModel(jwt, authenticationRequest.getUsername()));
 
     }
 
@@ -53,7 +53,7 @@ public class SecurityManager {
 
         final String jwt = jwtModel.getJwt();
 
-        if (!StringUtils.isEmpty(jwt)) {
+        if (!(StringUtils.isEmpty(jwt) || jwtUtil.isTokenExpired(jwt))) {
             String username = jwtUtil.extractUsername(jwt);
             if (!StringUtils.isEmpty(username)) {
                 UserDetails userDetails = this.myUserDetailsService.loadUserByUsername(username);

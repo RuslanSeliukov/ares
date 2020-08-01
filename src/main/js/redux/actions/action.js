@@ -2,13 +2,13 @@ import {
     ADD_BOOKS,
     ADD_CURRENT_BOOK,
     ADD_TO_CART,
-    ADD_USERNAME,
+    UPDATE_USER_INFO,
     CLEAN_CART,
-    REMOVE_CURRENT_BOOK
+    REMOVE_CURRENT_BOOK, SET_AUTHENTICATION
 } from "../../common/Constants";
 
-export function addUserInfo(payload) {
-    return { type: ADD_USERNAME, payload }
+export function updateUserInfo(payload) {
+    return { type: UPDATE_USER_INFO, payload }
 }
 
 export function addBooks(payload) {
@@ -29,4 +29,8 @@ export function cleanCart() {
 
 export function removeCurrentBook() {
     return { type: REMOVE_CURRENT_BOOK }
+}
+
+export function setAuthentication(payload) {
+    return { type: SET_AUTHENTICATION, payload }
 }

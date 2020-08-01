@@ -11,4 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class JwtJsonModel {
     private String jwt;
+    private String username;
 }
