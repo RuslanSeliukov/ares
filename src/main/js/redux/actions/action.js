@@ -4,7 +4,7 @@ import {
     ADD_TO_CART,
     UPDATE_USER_INFO,
     CLEAN_CART,
-    REMOVE_CURRENT_BOOK, SET_AUTHENTICATION
+    REMOVE_CURRENT_BOOK, SET_AUTHENTICATION, LOG_OUT
 } from "../../common/Constants";
 
 export function updateUserInfo(payload) {
@@ -33,4 +33,8 @@ export function removeCurrentBook() {
 
 export function setAuthentication(payload) {
     return { type: SET_AUTHENTICATION, payload }
+}
+
+export function logOut() {
+    return { type: LOG_OUT }
 }

@@ -4,7 +4,7 @@ import {
     ADD_BOOKS,
     ADD_CURRENT_BOOK,
     ADD_TO_CART,
-    CLEAN_CART,
+    CLEAN_CART, LOG_OUT,
     REMOVE_CURRENT_BOOK, SET_AUTHENTICATION,
     UPDATE_USER_INFO
 } from "../../common/Constants";
@@ -52,6 +52,12 @@ function rootReducer(state = initialState, action) {
     if (action.type === SET_AUTHENTICATION) {
         return Object.assign({}, state, {
             isUserAuthenticated: action.payload.isValid
+        });
+    }
+    if (action.type === LOG_OUT) {
+        return Object.assign({}, state, {
+            isUserAuthenticated: false,
+            username: undefined
         });
     }
     return state;

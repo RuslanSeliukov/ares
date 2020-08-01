@@ -12,17 +12,17 @@ class Cart extends React.Component {
     render() {
         return (
             <div>
-                <div>
+                <div className="container flex-direction">
                     {this.props.cart.map( cartItem =>
-                        <div>
+                        <div className="d-flex justify-content-right">
                             <CartItem cartItem={cartItem} />
                         </div>
                     )}
-                </div>
-                <div>
-                    <Link to="/order">
-                        <button type="button">Place An Order</button>
-                    </Link>
+                    <div className="d-flex flex-row-reverse">
+                        <Link to="/order">
+                            <button className="btn btn-success" type="button">Place An Order</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         )
