@@ -61,7 +61,8 @@ class AddProduct extends React.Component {
     };
 
     render() {
-        let validationMessage = this.state.validationError !== undefined ? <p>{this.state.validationError}</p> : <p></p>;
+        let validationMessage = this.state.validationError !== undefined ?
+            <p className="error text-danger">{this.state.validationError}</p> : <p/>;
         return (
             <div className="container flex-direction">
                 <h3 className="d-flex justify-content-center">Add new book</h3>
