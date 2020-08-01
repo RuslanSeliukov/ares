@@ -10,6 +10,13 @@ class Cart extends React.Component {
     }
 
     render() {
+        if (this.props.cart.length === 0) {
+            return (
+                <>
+                    <h3 className="d-flex justify-content-center">Your Cart Is Empty</h3>
+                </>
+            )
+        }
         return (
             <div>
                 <div className="container flex-direction">

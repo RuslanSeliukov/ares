@@ -1,5 +1,7 @@
 import {Field, reduxForm} from "redux-form";
 import React from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 class AddProductForm extends React.Component {
 
@@ -7,68 +9,60 @@ class AddProductForm extends React.Component {
         const {handleSubmit} = this.props;
         const {onChange} = this.props;
         return (
-            <div className="container flex-direction add-product">
-                <form onSubmit={handleSubmit}>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Book Name:
-                            <Field name="bookName" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Author Name:
-                            <Field name="author" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Publisher:
-                            <Field name="publisher" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Language:
-                            <Field name="language" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Publication Date:
-                            <Field name="publicationDate" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Print Length:
-                            <Field name="printLength" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Product Dimensions:
-                            <Field name="productDimensions" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            Binding:
-                            <Field name="binding" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <label>
-                            ISBN:
-                            <Field name="isbn" className="form-control" component="input" type="text"/>
-                        </label>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <input type="file" className="form-control" onChange={onChange}/>
-                    </div>
-                    <input type="submit" className="btn btn-primary" value="Submit" />
-                </form>
-            </div>
+            <Form onSubmit={handleSubmit}>
+
+                <Form.Group controlId="bookName">
+                    <Form.Label>Book name</Form.Label>
+                    <Field className="form-control" name="bookName" component="input" type="text"/>
+                </Form.Group>
+
+                <Form.Group controlId="author">
+                    <Form.Label>Author</Form.Label>
+                    <Field className="form-control" name="author" component="input" type="text"/>
+                </Form.Group>
+
+                <Form.Group controlId="publisher">
+                    <Form.Label>Publisher</Form.Label>
+                    <Field className="form-control" name="publisher" component="input" type="text"/>
+                </Form.Group>
+
+                <Form.Group controlId="language">
+                    <Form.Label>Language</Form.Label>
+                    <Field className="form-control" name="language" component="input" type="text"/>
+                </Form.Group>
+
+                <Form.Group controlId="publicationDate">
+                    <Form.Label>Publication date</Form.Label>
+                    <Field className="form-control" name="publicationDate" component="input" type="text"/>
+                </Form.Group>
+
+                <Form.Group controlId="printLength">
+                    <Form.Label>Print length</Form.Label>
+                    <Field className="form-control" name="printLength" component="input" type="number"/>
+                </Form.Group>
+
+                <Form.Group controlId="productDimensions">
+                    <Form.Label>Product dimension</Form.Label>
+                    <Field className="form-control" name="productDimensions" component="input" type="number"/>
+                </Form.Group>
+
+                <Form.Group controlId="binding">
+                    <Form.Label>Binding</Form.Label>
+                    <Field className="form-control" name="binding" component="input" type="text"/>
+                </Form.Group>
+
+                <Form.Group controlId="isbn">
+                    <Form.Label>ISBN</Form.Label>
+                    <Field className="form-control" name="isbn" component="input" type="text"/>
+                </Form.Group>
+
+                <div className="custom-file">
+                    <input onChange={onChange} type="file" className="custom-file-input" id="customFile"/>
+                    <label className="custom-file-label" htmlFor="customFile">Choose file</label>
+                </div>
+
+                <Button className="mt-3 mb-5" variant="success" type="submit">Submit</Button>
+            </Form>
         )
     }
 }

@@ -31,8 +31,8 @@ class LogIn extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>Please Enter Your Username And Password</h3>
+            <div  className="container flex-direction">
+                <h3 className="d-flex justify-content-center">Please Enter Your Username And Password</h3>
                 <LogInForm onSubmit={this.submit} />
             </div>
         )

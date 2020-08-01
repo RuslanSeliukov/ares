@@ -1,6 +1,8 @@
 import React from 'react';
 import AddProductForm from "./forms/AddProductForm";
 import axios from 'axios';
+import {reset} from 'redux-form';
+import store from "../redux/store/store";
 
 class AddProduct extends React.Component {
 
@@ -45,7 +47,8 @@ class AddProduct extends React.Component {
             }
         };
 
-        axios.post(url, formData, config).then(response => response.data);
+        axios.post(url, formData, config)
+            .then(store.dispatch(reset('addProductForm')));
     };
 
     onChange (event) {
@@ -60,7 +63,8 @@ class AddProduct extends React.Component {
     render() {
         let validationMessage = this.state.validationError !== undefined ? <p>{this.state.validationError}</p> : <p></p>;
         return (
-            <div>
+            <div className="container flex-direction">
+                <h3 className="d-flex justify-content-center">Add new book</h3>
                 {validationMessage}
                 <AddProductForm onSubmit={this.handleSubmit} onChange={this.onChange}/>
             </div>
