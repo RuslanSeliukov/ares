@@ -9,12 +9,16 @@ class LogIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: undefined
+            username: undefined,
+            error: undefined
         };
     }
 
     submit = values => {
-        this.setState({username: values.username});
+        this.setState({
+            username: values.username,
+            error: undefined
+        });
         axios({
             method: 'post',
             url: '/api/authenticate',
@@ -26,13 +30,18 @@ class LogIn extends React.Component {
                 isValid: true
             }));
             this.props.history.push("/");
-        }.bind(this));
+        }.bind(this)).catch(e => {
+            this.setState({error: true})
+        });
     };
 
     render() {
+        let error = this.state.error !== undefined ?
+            <p className="error text-danger">Incorrect username or password</p> : <p/>;
         return (
             <div  className="container flex-direction">
                 <h3 className="d-flex justify-content-center">Please Enter Your Username And Password</h3>
+                {error}
                 <LogInForm onSubmit={this.submit} />
             </div>
         )
