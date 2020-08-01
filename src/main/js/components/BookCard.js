@@ -8,7 +8,7 @@ export const BookCard = (props) => (
                 <div className="text-center header-element">{props.book.bookName}</div>
                 <div className="d-flex justify-content-around">
                     <div>
-                        <img style={{width: "180px", height: "250"}} src={"data:image/png;base64," + props.book.pictureData}
+                        <img className="card-image" src={"data:image/png;base64," + props.book.pictureData}
                              alt=""/>
                     </div>
                     <div className="ml-3">

@@ -38,7 +38,7 @@ class BookInfo extends React.Component {
             (typeof this.props.currentBook != 'undefined')?
             <div className="container flex-row">
                 <div className="d-flex justify-content-center">
-                    <img style={{width: "280px", height: "250"}} src={"data:image/png;base64," + this.props.currentBook.pictureData}/>
+                    <img className="cart-image" src={"data:image/png;base64," + this.props.currentBook.pictureData}/>
                 </div>
                 <div className="mb-5 mt-5">
                     <h3>Information: </h3>

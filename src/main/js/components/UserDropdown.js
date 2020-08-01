@@ -3,7 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 
 const UserDropdown = props => (
 
-    <Dropdown>
+    <Dropdown className="m-3">
         <Dropdown.Toggle className="btn-sm" variant="success" id="dropdown-basic">
             {props.username}
         </Dropdown.Toggle>

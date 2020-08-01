@@ -8,7 +8,7 @@ class Logo extends React.Component {
 
     render() {
         return (
-            <div style={{display: "flex", justifyContent: "center"}} >
+            <div className="d-flex justify-content-center">
                 <h2>LOGO</h2>
             </div>
         )

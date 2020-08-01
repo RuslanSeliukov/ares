@@ -34,15 +34,15 @@ class HeaderMenu extends React.Component {
 
         if (this.props.isUserAuthenticated) {
             userLink = <UserDropdown username={this.props.username} logOut={this.logOut}/>;
-            adminLink = <Link style={{margin: "5px"}} to="/admin/addProduct">Add New Book</Link>
+            adminLink = <Link className="m-3" to="/admin/addProduct">Add New Book</Link>
         } else {
-            userLink = <Link style={{margin: "5px"}} to="/login">Log In</Link>
+            userLink = <Link className="m-3" to="/login">Log In</Link>
         }
         return (
             <div className="header-menu" style={{display: "flex", justifyContent: "center"}} >
-                <Link style={{margin: "5px"}} to="/">Main Page</Link>
+                <Link className="m-3" to="/">Main Page</Link>
                 {adminLink}
-                <Link style={{margin: "5px"}} to="/cart">Cart</Link>
+                <Link className="m-3" to="/cart">Cart</Link>
                 {userLink}
             </div>
         )

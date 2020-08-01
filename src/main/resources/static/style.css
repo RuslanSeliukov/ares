@@ -19,3 +19,12 @@ p {
 .header-menu {
     margin-bottom: 50px;
 }
+
+.card-image {
+    width: 180px;
+    height: 250px;
+}
+
+.cart-image {
+    width: 280px;
+}
