@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store/store"
 import Logo from "./components/Logo"
 import HeaderMenu from "./components/HeaderMenu";
+import "../resources/static/style.css"
 
 class App extends React.Component {
 
