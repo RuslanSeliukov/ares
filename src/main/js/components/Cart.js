@@ -13,8 +13,8 @@ class Cart extends React.Component {
         return (
             <div>
                 <div className="container flex-direction">
-                    {this.props.cart.map( cartItem =>
-                        <div className="d-flex justify-content-right">
+                    {this.props.cart.map(cartItem =>
+                        <div key={Math.random().toString(36).substring(2)} className="d-flex justify-content-right card">
                             <CartItem cartItem={cartItem} />
                         </div>
                     )}

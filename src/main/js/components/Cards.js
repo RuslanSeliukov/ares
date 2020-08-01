@@ -36,7 +36,7 @@ class Cards extends React.Component {
 const BookCard = ({books}) => (
     <div className="container d-flex flex-column">
         {books.map(book => (
-            <div className="card justify-content-center">
+            <div key={book.id} className="card justify-content-center">
                 <div className="text-center text-element">{book.bookName}</div>
                 <div>
                     <Link to={{pathname: `/BookInfo/${book.id}`, state: {bookId: book.id}}} >
