@@ -9,6 +9,7 @@ const UserDropdown = props => (
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
+            <Dropdown.Item onClick={props.addBook}>Add New Book</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={props.logOut}>Log Out</Dropdown.Item>
         </Dropdown.Menu>

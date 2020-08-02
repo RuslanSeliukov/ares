@@ -28,20 +28,21 @@ class HeaderMenu extends React.Component {
         this.props.history.push("/");
     };
 
+    addBook = () => {
+        this.props.history.push("/admin/addProduct");
+    };
+
     render() {
-        let adminLink;
         let userLink;
 
         if (this.props.isUserAuthenticated) {
-            userLink = <UserDropdown username={this.props.username} logOut={this.logOut}/>;
-            adminLink = <Link className="m-3" to="/admin/addProduct">Add New Book</Link>
+            userLink = <UserDropdown username={this.props.username} addBook={this.addBook} logOut={this.logOut}/>;
         } else {
             userLink = <Link className="m-3" to="/login">Log In</Link>
         }
         return (
             <div className="header-menu" style={{display: "flex", justifyContent: "center"}} >
                 <Link className="m-3" to="/">Main Page</Link>
-                {adminLink}
                 <Link className="m-3" to="/cart">Cart</Link>
                 {userLink}
             </div>
