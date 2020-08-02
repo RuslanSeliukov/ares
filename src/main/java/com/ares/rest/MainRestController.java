@@ -6,13 +6,16 @@ import com.ares.models.db.Book;
 import com.ares.models.db.Order;
 import com.ares.repositories.BookRepository;
 import com.ares.repositories.OrderRepository;
+import com.ares.utils.message.AbstractMessenger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -22,6 +25,9 @@ public class MainRestController {
     BookRepository bookRepository;
     @Autowired
     OrderRepository orderRepository;
+    @Autowired
+    @Qualifier("SpringMessenger")
+    AbstractMessenger messenger;
 
     @PostMapping(value = "/addProduct", consumes = "multipart/form-data", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> index(@ModelAttribute AddProductRequest addProductRequest) {
@@ -66,7 +72,19 @@ public class MainRestController {
         } catch (Exception e) {
             return ResponseEntity.status(500).build();
         }
-        return ResponseEntity.ok().build();
+
+        //email sending is need to be refactored
+        if (order.getEmail() != null && order.getFirsName() != null) {
+            messenger.setMassageConstants(Map.of("firstName", order.getFirsName()));
+            boolean success = messenger.sendMessage(order.getEmail());
+            if (success) {
+                return ResponseEntity.ok().build();
+            } else {
+                return ResponseEntity.status(500).build();
+            }
+        } else {
+            return ResponseEntity.status(500).build();
+        }
     }
 
 }

@@ -1,0 +1,48 @@
+{
+  "properties": [
+    {
+      "name": "email.path.to.template",
+      "type": "java.lang.String",
+      "description": "Path to email template"
+    },
+    {
+      "name": "email.order.subject",
+      "type": "java.lang.String",
+      "description": "Subject for email"
+    },
+    {
+      "name": "authentication.data.username",
+      "type": "java.lang.String",
+      "description": "Username for smtp"
+    },
+    {
+      "name": "authentication.data.password",
+      "type": "java.lang.String",
+      "description": "Password for smtp"
+    },
+    {
+      "name": "mail.smtp.host",
+      "type": "java.lang.String",
+      "description": "Smtp host"
+    },
+    {
+      "name": "mail.smtp.port",
+      "type": "java.lang.String",
+      "description": "Smtp port"
+    },
+    {
+      "name": "mail.smtp.ssl.enable",
+      "type": "java.lang.String",
+      "description": "Smtp ssl enabled"
+    },
+    {
+      "name": "mail.smtp.auth",
+      "type": "java.lang.String",
+      "description": "Smtp auth"
+    },
+    {
+      "name": "mail.debug",
+      "type": "java.lang.String",
+      "description": "Debug mod for sending emails"
+    }
+  ] }
